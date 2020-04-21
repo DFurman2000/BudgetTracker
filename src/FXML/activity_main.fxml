@@ -6,6 +6,8 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
@@ -13,10 +15,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MainActivity">
    <children>
-      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" >
+      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
          <top>
             <VBox alignment="CENTER" BorderPane.alignment="CENTER">
                <children>
@@ -114,20 +115,33 @@
                   </HBox>
                </children>
                <BorderPane.margin>
-                  <Insets />
+                  <Insets bottom="10.0" />
                </BorderPane.margin>
             </VBox>
          </top>
          <bottom>
             <HBox alignment="CENTER" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="addTransactionBtn" mnemonicParsing="false" text="Add Transaction" onAction="#addTransactionBtnClicked"/>
+                  <Button fx:id="addTransactionBtn" mnemonicParsing="false" onAction="#addTransactionBtnClicked" text="Add Transaction" />
                </children>
                <BorderPane.margin>
-                  <Insets bottom="25.0" />
+                  <Insets bottom="25.0" top="10.0" />
                </BorderPane.margin>
             </HBox>
          </bottom>
+         <center>
+            <TableView fx:id="transactionTV" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+              <columns>
+                <TableColumn fx:id="dateTC" prefWidth="81.0" resizable="false" text="Date" />
+                <TableColumn fx:id="typeTC" prefWidth="96.0" resizable="false" text="Type" />
+                  <TableColumn fx:id="amountTC" prefWidth="88.0" resizable="false" text="Amount" />
+                  <TableColumn fx:id="noteTC" prefWidth="334.0" resizable="false" text="Note" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+         </center>
       </BorderPane>
    </children>
 </AnchorPane>
