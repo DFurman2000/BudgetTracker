@@ -1,6 +1,5 @@
 package Controllers;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -18,15 +17,4 @@ public class Transaction {
         stage.setScene(new Scene(root));
         stage.show();
     }
-
-    public void IncomebtnClick(ActionEvent actionEvent) {
-
-    }
-
-    public void ExpensebtnClick(ActionEvent actionEvent) {
-    }
-
-    public void CategorybtnClick(ActionEvent actionEvent) {
-    }
-
 }
