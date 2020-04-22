@@ -1,22 +1,24 @@
 package Controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
 import java.io.IOException;
 
 public class Category {
     public Button confirmCategoryBtn;
 
-    public void confirmCategoryBtnClicked(javafx.event.ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../FXML/activity_transaction.fxml"));
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.show();
-
-        ((Stage)confirmCategoryBtn.getScene().getWindow()).close();
+    public void confirmCategoryBtnClicked(ActionEvent actionEvent) throws IOException {
+        Window categoryWindow = confirmCategoryBtn.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("../FXML/activity_transaction.fxml"));
+        Parent root = loader.load();
+        Transaction transaction = loader.getController();
+        categoryWindow.getScene().setRoot(root);
     }
 }

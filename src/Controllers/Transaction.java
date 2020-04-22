@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
 import java.io.IOException;
 import java.util.Date;
@@ -24,18 +25,20 @@ public class Transaction {
     }
 
     public void confirmTransactionBtnClicked(javafx.event.ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../FXML/activity_main.fxml"));
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.show();
-
-        ((Stage) confirmTransactionBtn.getScene().getWindow()).close();
+        Window mainWindow = confirmTransactionBtn.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("../FXML/activity_main.fxml"));
+        Parent root = loader.load();
+        MainActivity mainActivity = loader.getController();
+        mainWindow.getScene().setRoot(root);
     }
 
     public void selectCategoryBtnClicked(javafx.event.ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../FXML/activity_category.fxml"));
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.show();
+        Window categoryWindow = selectCategoryBtn.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("../FXML/activity_category.fxml"));
+        Parent root = loader.load();
+        Category category = loader.getController();
+        categoryWindow.getScene().setRoot(root);
     }
 }

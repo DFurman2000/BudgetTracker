@@ -12,6 +12,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Region;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
 import java.io.IOException;
 import java.util.Date;
@@ -46,11 +47,11 @@ public class MainActivity {
     }
 
     public void addTransactionBtnClicked(javafx.event.ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../FXML/activity_transaction.fxml"));
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.show();
-
-        ((Stage)addTransactionBtn.getScene().getWindow()).close();
+        Window transactionWindow = addTransactionBtn.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("../FXML/activity_transaction.fxml"));
+        Parent root = loader.load();
+        Transaction transaction = loader.getController();
+        transactionWindow.getScene().setRoot(root);
     }
 }
