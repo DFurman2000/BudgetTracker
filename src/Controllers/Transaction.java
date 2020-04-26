@@ -1,34 +1,41 @@
 package Controllers;
 
-import javafx.event.ActionEvent;
+import Objects.Type;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.SceneAntialiasing;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleButton;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Date;
+import java.util.Optional;
 
 public class Transaction {
-    public Button confirmTransactionBtn;
+    public Button confirmTransactionBtn, selectCategoryBtn;
+    public ChoiceBox<Type> typeCB;
+    public DatePicker dateDP;
     public TextField amountTF;
-    public Button selectCategoryBtn;
     public TextArea noteTA;
-    public ToggleButton incomeToggleBtn;
-    public ToggleButton expenseToggleBtn;
-    public TextField dateTF;
 
 
+    public void initialize() {
+        typeCB.getItems().addAll(Type.Income, Type.Expense);
+    }
 
-    public void confirmTransactionBtnClicked(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML/activity_main.fxml"));
-        Scene scene = new Scene(loader.load());
+    public void confirmTransactionBtnClicked(javafx.event.ActionEvent actionEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../FXML/activity_main.fxml"));
         Stage stage = new Stage();
-        stage.setScene(scene);
+        stage.setScene(new Scene(root));
+        stage.show();
+
+        ((Stage) confirmTransactionBtn.getScene().getWindow()).close();
+    }
+
+    public void selectCategoryBtnClicked(javafx.event.ActionEvent actionEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../FXML/activity_category.fxml"));
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
         stage.show();
     }
 }
