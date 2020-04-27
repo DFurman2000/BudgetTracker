@@ -1,17 +1,19 @@
 package Objects;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Transaction {
 
     private Type type;
-    private Date date;
+    private LocalDate date;
+    private Category category;
     private Double amount;
     private String note;
 
-    public Transaction(Type type, Date date, Double amount, String note) {
+    public Transaction(Type type, LocalDate date, Category category, Double amount, String note) {
         this.type = type;
         this.date = date;
+        this.category = category;
         this.amount = amount;
         this.note = note;
     }
@@ -24,12 +26,20 @@ public class Transaction {
         this.type = type;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     public Double getAmount() {
@@ -49,6 +59,6 @@ public class Transaction {
     }
 
     public String toString() {
-        return " Date: " + date + " Amount: £" + amount + " Type: " + type + " Note: " + note;
+        return "Type: " + type + ",    Date: " + date + ",    Amount: £" + amount + ",    Category: " + category;
     }
 }
