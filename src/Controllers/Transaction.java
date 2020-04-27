@@ -20,7 +20,8 @@ public class Transaction {
 
 
     public void initialize() {
-        typeCB.getItems().addAll(Type.Income, Type.Expense);
+//        typeCB.getItems().addAll(Type.Income, Type.Expense);
+
     }
 
     public void confirmTransactionBtnClicked(javafx.event.ActionEvent actionEvent) throws IOException {
@@ -31,6 +32,7 @@ public class Transaction {
 
         ((Stage) confirmTransactionBtn.getScene().getWindow()).close();
     }
+
 
     public void selectCategoryBtnClicked(javafx.event.ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("../FXML/activity_category.fxml"));

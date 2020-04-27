@@ -4,10 +4,7 @@ import Objects.Type;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Region;
 import javafx.scene.text.Text;
@@ -46,11 +43,12 @@ public class MainActivity {
     }
 
     public void addTransactionBtnClicked(javafx.event.ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../FXML/activity_transaction.fxml"));
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.show();
+            Parent root = FXMLLoader.load(getClass().getResource("../FXML/activity_transaction.fxml"));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
 
-        ((Stage)addTransactionBtn.getScene().getWindow()).close();
+            ((Stage) addTransactionBtn.getScene().getWindow()).close();
+
     }
 }
