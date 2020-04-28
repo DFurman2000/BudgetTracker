@@ -2,6 +2,7 @@ package Controllers;
 
 import Objects.Category;
 import Objects.Transaction;
+import Objects.Type;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
@@ -33,9 +34,10 @@ public class incomeController {
 
     public void confirmIncomeClicked() throws IOException {
         try {
+            Type type = Type.Income;
             double amount = Double.parseDouble(amountTF.getText());
             LocalDate localDate = dateDP.getValue();
-            String category = categoryCB.getSelectionModel().getSelectedItem().toString();
+            Category category = categoryCB.getSelectionModel().getSelectedItem();
             String note = noteTA.getText();
 
             if (amount <= 0) {
@@ -51,7 +53,7 @@ public class incomeController {
                     loader.setLocation(getClass().getResource("../FXML/activity_main.fxml"));
                     Parent root = loader.load();
                     mainController main = loader.getController();
-                    main.passIncome(amount, localDate, category, note);
+                    main.passTransaction(type, amount, localDate, category, note);
 
                     newWindow.getScene().setRoot(root);
                 }
