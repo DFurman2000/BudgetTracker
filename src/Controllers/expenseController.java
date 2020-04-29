@@ -37,7 +37,7 @@ public class expenseController {
         try {
             double amount = Double.parseDouble(amountTF.getText());
             LocalDate localDate = dateDP.getValue();
-            String category = categoryCB.getSelectionModel().getSelectedItem().toString();
+            Category category = categoryCB.getSelectionModel().getSelectedItem();
             String note = noteTA.getText();
 
             if (amount <= 0) {
@@ -53,8 +53,10 @@ public class expenseController {
                     loader.setLocation(getClass().getResource("../FXML/activity_main.fxml"));
                     Parent root = loader.load();
                     mainController main = loader.getController();
+
                     Locale locale = new Locale("en", "GB");
                     NumberFormat cf = NumberFormat.getCurrencyInstance(locale);
+
                     main.lblExpensesTotal.setText(cf.format(amount));
                     main.passExpense(amount, localDate, category, note);
 

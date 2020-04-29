@@ -37,7 +37,7 @@ public class incomeController {
         try {
             double amount = Double.parseDouble(amountTF.getText());
             LocalDate localDate = dateDP.getValue();
-            String category = categoryCB.getSelectionModel().getSelectedItem().toString();
+            Category category = categoryCB.getSelectionModel().getSelectedItem();
             String note = noteTA.getText();
 
             if (amount <= 0) {
