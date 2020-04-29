@@ -47,7 +47,7 @@ public class incomeController {
                 alert.setTitle("Confirm Transaction");
                 alert.setHeaderText("Are you sure about this payment?");
                 Optional<ButtonType> result = alert.showAndWait();
-                if (result.get() == ButtonType.OK) {
+                if (result.get()== ButtonType.OK) {
                     Window newWindow = confirmIncome.getScene().getWindow();
                     FXMLLoader loader = new FXMLLoader();
                     loader.setLocation(getClass().getResource("../FXML/activity_main.fxml"));
