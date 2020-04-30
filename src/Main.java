@@ -9,8 +9,11 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("FXML/activity_main.fxml"));
-        stage.setScene(new Scene(root, 600, 400));
+        Scene scene = new Scene(root, 600, 400);
+        stage.setScene(scene);
         stage.show();
+
+        scene.getStylesheets().add("styleSheet.css");
     }
 
     public static void main(String[] args) {

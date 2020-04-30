@@ -15,7 +15,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class mainController {
-    public Button addTransactionBtn;
+    public Button addTransactionBtn, viewPaymentBtn;
     public Label incomeLbl, expenseLbl, balanceLbl;
     public Label lblExpensesTotal;
     public Label lblIncomeTotal;
@@ -28,7 +28,6 @@ public class mainController {
 
     public void initialize() {
         transactionLV.setItems(t);
-
     }
 
     public void addTransactionBtnClicked() {
@@ -40,7 +39,8 @@ public class mainController {
             transactionController transaction = loader.getController();
             mainWindow.getScene().setRoot(root);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.showAndWait();
         }
     }
 
@@ -49,9 +49,24 @@ public class mainController {
         Transaction transaction = new Transaction(type, localDate, category, amount, note);
         t.addAll(transaction);
         if (type == Type.Expense) {
-            lblExpensesTotal.setText(String.valueOf(df.format(amount)));
+            lblExpensesTotal.setText("Income: £" + String.valueOf(df.format(amount)));
         } else {
-            lblIncomeTotal.setText(String.valueOf(df.format(amount)));
+            lblIncomeTotal.setText("Income: " + String.valueOf(df.format(amount)));
+        }
+    }
+
+    public void viewPayment() {
+        try {
+            Transaction t = transactionLV.getSelectionModel().getSelectedItem();
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Payment Details");
+            alert.setHeaderText("Information about a Payment");
+            alert.setContentText("Type: " + t.getType() + "\n" + "Amount: £" + t.getAmount() + "\n" + "Date of Transaction: "
+                    + t.getDate() + "\n" + "Category: " + t.getCategory() + "\n" + "Note: " + t.getNote());
+            alert.showAndWait();
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Please select a payment", ButtonType.OK);
+            alert.showAndWait();
         }
     }
 }

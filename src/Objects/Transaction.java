@@ -45,7 +45,7 @@ public class Transaction {
     }
 
     public Double getAmount() {
-        return amount;
+        return Double.parseDouble(df.format(amount));
     }
 
     public void setAmount(Double amount) {
