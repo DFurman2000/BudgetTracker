@@ -1,18 +1,15 @@
 package Controllers;
 
 import Objects.Category;
-import Objects.Transaction;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.stage.Window;
-
 import java.io.IOException;
 import java.text.NumberFormat;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Optional;
 

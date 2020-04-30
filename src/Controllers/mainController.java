@@ -8,11 +8,9 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Window;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 
 public class mainController {
     public Button addIncomeBtn, addExpenseBtn;
@@ -21,6 +19,7 @@ public class mainController {
     public Label lblIncomeTotal;
     public ListView<Transaction> transactionLV;
     public Transaction e, i;
+    public ListView <Transaction> ExpenseLV;
 
 
     private ObservableList<Transaction> t = FXCollections.observableArrayList();
@@ -28,6 +27,7 @@ public class mainController {
 
     public void initialize() {
         transactionLV.setItems(t);
+
     }
 
     public void addIncomeBtnClicked() {

@@ -94,7 +94,7 @@
          </HBox>
       </bottom>
       <center>
-         <ListView fx:id="transactionLV" prefHeight="197.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+         <ListView fx:id="transactionLV" prefHeight="190.0" prefWidth="293.0" BorderPane.alignment="CENTER" />
       </center>
    </BorderPane>
 </AnchorPane>

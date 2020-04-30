@@ -53,10 +53,8 @@ public class expenseController {
                     loader.setLocation(getClass().getResource("../FXML/activity_main.fxml"));
                     Parent root = loader.load();
                     mainController main = loader.getController();
-
                     Locale locale = new Locale("en", "GB");
                     NumberFormat cf = NumberFormat.getCurrencyInstance(locale);
-
                     main.lblExpensesTotal.setText(cf.format(amount));
                     main.passExpense(amount, localDate, category, note);
 
