@@ -12,6 +12,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Window;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class mainController {
     public Button addIncomeBtn, addExpenseBtn;
@@ -21,7 +22,9 @@ public class mainController {
     public ListView<Transaction> transactionLV;
     public Transaction e, i;
 
+
     private ObservableList<Transaction> t = FXCollections.observableArrayList();
+
 
     public void initialize() {
         transactionLV.setItems(t);
@@ -63,4 +66,5 @@ public class mainController {
         Transaction transaction = new Transaction(Type.Income, localDate, category, amount, note);
         t.addAll(transaction);
     }
+
 }

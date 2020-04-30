@@ -12,6 +12,7 @@ import javafx.stage.Window;
 import java.io.IOException;
 import java.text.NumberFormat;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Optional;
 
