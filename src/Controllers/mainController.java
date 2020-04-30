@@ -11,25 +11,25 @@ import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import javafx.stage.Window;
-
-import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class mainController {
-    public Button addTransactionBtn;
-    public Label incomeLbl, expenseLbl, balanceLbl;
+    public Label expenseLbl, balanceLbl;
     public Label lblExpensesTotal;
     public Label lblIncomeTotal;
     public ListView<Transaction> transactionLV;
-    public Transaction e, i;
     public Button addIncomeBtn;
     public Button CloseBtn;
 
 
     ArrayList<Transaction> E = new ArrayList<>();
     private ObservableList<Transaction> t = FXCollections.observableArrayList(E);
-    private DecimalFormat df = new DecimalFormat("0.00");
+    Locale locale = new Locale("en", "GB");
+    NumberFormat cf = NumberFormat.getCurrencyInstance(locale);
+
 
     public void initialize() {
         transactionLV.setItems(t);
@@ -54,9 +54,9 @@ public class mainController {
         Transaction transaction = new Transaction(type, localDate, category, amount, note);
         t.addAll(transaction);
         if (type == Type.Expense) {
-            lblExpensesTotal.setText(String.valueOf(df.format(amount)));
+            lblExpensesTotal.setText(String.valueOf(cf.format(amount)));
         } else {
-            lblIncomeTotal.setText(String.valueOf(df.format(amount)));
+            lblIncomeTotal.setText(String.valueOf(cf.format(amount)));
         }
     }
 

@@ -11,25 +11,27 @@ import javafx.scene.control.*;
 import javafx.stage.Window;
 import java.io.IOException;
 import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.time.LocalDate;
+import java.util.Locale;
 import java.util.Optional;
 
 public class transactionController {
 
     public TextField amountTF;
-    public ComboBox<Category> categoryCB;
-    public Button confirmTransaction;
-    public DatePicker dateDP;
     public TextArea noteTA;
-    public Button cancelTransactionBtn;
+    public DatePicker dateDP;
     public ComboBox<Type> TypeCB;
+    public ComboBox<Category> categoryCB;
     public Button cancelIncomeBtn;
     public Button confirmIncome;
 
     private ObservableList<Category> incomeList = FXCollections.observableArrayList();
     private ObservableList<Type> select = FXCollections.observableArrayList();
     private ObservableList<Category> expenseList = FXCollections.observableArrayList();
-    private DecimalFormat df = new DecimalFormat("0.00");
+
+    Locale locale = new Locale("en", "GB");
+    NumberFormat cf = NumberFormat.getCurrencyInstance(locale);
 
     public void initialize() {
         select.addAll(Type.Income, Type.Expense);
@@ -55,7 +57,7 @@ public class transactionController {
     public void confirmIncomeClicked() throws IOException {
         try {
             Type type = TypeCB.getSelectionModel().getSelectedItem();
-            double amount = Double.parseDouble(amountTF.getText());
+            double amount = Double.parseDouble(cf.format(amountTF.getText()));
             LocalDate localDate = dateDP.getValue();
             Category category = categoryCB.getSelectionModel().getSelectedItem();
             String note = noteTA.getText();
@@ -97,10 +99,5 @@ public class transactionController {
             newWindow.getScene().setRoot(root);
         }
     }
-
-
-
-
-
 }
 
