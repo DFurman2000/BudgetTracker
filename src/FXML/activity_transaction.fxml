@@ -6,13 +6,13 @@
 <?import javafx.scene.text.*?>
 
 <AnchorPane xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.incomeController">
-   <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #778899;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+   <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <top>
-         <HBox style="-fx-background-color: #778899;">
+         <HBox>
             <BorderPane.margin>
                <Insets />
             </BorderPane.margin>
-            <Button fx:id="cancelIncomeBtn" mnemonicParsing="false" onAction="#cancelIncomeClicked" style="-fx-background-color: #FFFAFA;" text="Cancel">
+            <Button fx:id="cancelIncomeBtn" mnemonicParsing="false" onAction="#cancelIncomeClicked" text="Cancel">
                <HBox.margin>
                   <Insets left="10.0" top="10.0" />
                </HBox.margin>
@@ -28,23 +28,16 @@
          </HBox>
       </top>
       <center>
-         <VBox alignment="CENTER" style="-fx-background-color: #778899;" BorderPane.alignment="CENTER">
-            <HBox prefHeight="52.0" prefWidth="600.0" style="-fx-background-color: #778899;" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Type" wrappingWidth="44.13674294948578">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Text>
-            <ComboBox fx:id="TypeCB" minHeight="-Infinity" minWidth="-Infinity" onAction="#AddSelectType" prefHeight="25.0" prefWidth="128.0" style="-fx-background-color: #FFFAFA;" />
+         <VBox alignment="CENTER" BorderPane.alignment="CENTER">
+            <HBox prefHeight="52.0" prefWidth="600.0" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Type" wrappingWidth="44.13674294948578" />
+            <ComboBox fx:id="TypeCB" onAction="#AddSelectType" prefHeight="25.0" prefWidth="110.0" />
             <HBox alignment="CENTER" layoutX="10.0" layoutY="190.0">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
-               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
-                  <font>
-                     <Font name="System Bold" size="12.0" />
-                  </font></Text>
-               <DatePicker fx:id="dateDP" promptText="Select a date here" style="-fx-background-color: #FFFAFA;" />
+               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date" />
+               <DatePicker fx:id="dateDP" promptText="Select a date here" />
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="192.0">
                <VBox.margin>
@@ -54,11 +47,8 @@
                   <HBox.margin>
                      <Insets right="5.0" />
                   </HBox.margin>
-                  <font>
-                     <Font name="System Bold" size="12.0" />
-                  </font>
                </Text>
-               <TextField fx:id="amountTF" promptText="Enter the amount here" style="-fx-background-color: #FFFAFA;">
+               <TextField fx:id="amountTF" promptText="Enter the amount here">
                   <HBox.margin>
                      <Insets right="15.0" />
                   </HBox.margin>
@@ -68,38 +58,32 @@
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
-               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Category" wrappingWidth="69.95312440395355">
-                  <font>
-                     <Font name="System Bold" size="12.0" />
-                  </font>
+               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Category">
                   <HBox.margin>
                      <Insets right="5.0" />
                   </HBox.margin>
                </Text>
-               <ComboBox fx:id="categoryCB" style="-fx-background-color: #FFFAFA;" />
+               <ComboBox fx:id="categoryCB" />
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="204.0">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Note">
-                  <font>
-                     <Font name="System Bold" size="12.0" />
-                  </font>
                   <HBox.margin>
                      <Insets right="5.0" />
                   </HBox.margin>
                </Text>
-               <TextArea fx:id="noteTA" prefHeight="58.0" prefWidth="398.0" style="-fx-background-color: #FFFAFA;" wrapText="true" />
+               <TextArea fx:id="noteTA" prefHeight="75.0" prefWidth="400.0" wrapText="true" />
             </HBox>
          </VBox>
       </center>
       <bottom>
-         <HBox alignment="CENTER" prefHeight="33.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <HBox alignment="CENTER" BorderPane.alignment="CENTER">
             <BorderPane.margin>
                <Insets bottom="25.0" />
             </BorderPane.margin>
-            <Button fx:id="confirmIncome" mnemonicParsing="false" onAction="#confirmIncomeClicked" prefHeight="15.0" prefWidth="59.0" style="-fx-background-color: #FFFAFA;" text="Confirm" />
+            <Button fx:id="confirmIncome" mnemonicParsing="false" onAction="#confirmIncomeClicked" text="Confirm" />
          </HBox>
       </bottom>
    </BorderPane>

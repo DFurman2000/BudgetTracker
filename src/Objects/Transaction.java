@@ -1,5 +1,6 @@
 package Objects;
 
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 
 public class Transaction {
@@ -9,6 +10,7 @@ public class Transaction {
     private Category category;
     private Double amount;
     private String note;
+    private DecimalFormat df = new DecimalFormat("0.00");
 
     public Transaction(Type type, LocalDate date, Category category, Double amount, String note) {
         this.type = type;
@@ -59,6 +61,6 @@ public class Transaction {
     }
 
     public String toString() {
-        return "Type: " + type + ",    Date: " + date + ",    Amount: £" + amount + ",    Category: " + category;
+        return "Type: " + type + ",    Date: " + date + ",    Amount: £" + df.format(amount) + ",    Category: " + category;
     }
 }
