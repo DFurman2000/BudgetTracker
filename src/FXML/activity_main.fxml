@@ -6,13 +6,13 @@
 <?import javafx.scene.text.*?>
 
 <AnchorPane xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.mainController">
-   <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+   <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #708090;">
       <top>
          <VBox alignment="CENTER" BorderPane.alignment="CENTER">
             <BorderPane.margin>
                <Insets bottom="10.0" />
             </BorderPane.margin>
-            <MenuBar>
+            <MenuBar style="-fx-background-color: #778899;">
                <Menu mnemonicParsing="false" text="File">
                   <MenuItem mnemonicParsing="false" text="Close" />
                </Menu>
@@ -85,16 +85,15 @@
             <BorderPane.margin>
                <Insets bottom="25.0" top="10.0" />
             </BorderPane.margin>
-            <Button fx:id="addIncomeBtn" mnemonicParsing="false" onAction="#addIncomeBtnClicked" text="Add Income/Expenses">
+            <Button fx:id="addIncomeBtn" mnemonicParsing="false" onAction="#addIncomeBtnClicked" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: #F5F5F5;" text="Add Income/Expenses">
                <HBox.margin>
                   <Insets right="25.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="addExpenseBtn" mnemonicParsing="false" onAction="#addExpenseBtnClicked" text="Add Expense" />
          </HBox>
       </bottom>
       <center>
-         <ListView fx:id="transactionLV" prefHeight="190.0" prefWidth="293.0" BorderPane.alignment="CENTER" />
+         <ListView fx:id="transactionLV" prefHeight="190.0" prefWidth="293.0" style="-fx-background-color: #778899;" BorderPane.alignment="CENTER" />
       </center>
    </BorderPane>
 </AnchorPane>
