@@ -23,6 +23,7 @@ public class transactionController {
     public TextArea noteTA;
     public Button cancelTransactionBtn;
     public ComboBox<Type> TypeCB;
+    public Button cancelIncomeBtn;
 
     private ObservableList<Category> incomeList = FXCollections.observableArrayList();
     private ObservableList<Type> select = FXCollections.observableArrayList();
@@ -50,7 +51,7 @@ public class transactionController {
         }
 
     }
-    public void confirmTransactionClicked() throws IOException {
+    public void confirmIncomeClicked() throws IOException {
         try {
             Type type = TypeCB.getSelectionModel().getSelectedItem();
             double amount = Double.parseDouble(amountTF.getText());
@@ -81,7 +82,7 @@ public class transactionController {
         }
     }
 
-    public void cancelTransactionClicked() throws IOException {
+    public void cancelIncomeClicked() throws IOException {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Cancel Transaction");
         alert.setHeaderText("Are you sure about cancelling this transaction?");
@@ -95,6 +96,9 @@ public class transactionController {
             newWindow.getScene().setRoot(root);
         }
     }
+
+
+
 
 
 }
