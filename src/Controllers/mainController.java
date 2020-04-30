@@ -55,7 +55,7 @@ public class mainController {
     }
 
     public void passExpense(double amount, LocalDate localDate, Category category, String note) {
-        Transaction transaction = new Transaction(Type.Income, localDate, category, amount, note);
+        Transaction transaction = new Transaction(Type.Expense, localDate, category, amount, note);
         t.addAll(transaction);
     }
 
