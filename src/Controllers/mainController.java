@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 import javafx.stage.Window;
 
 import java.text.DecimalFormat;
@@ -23,6 +24,8 @@ public class mainController {
     public ListView<Transaction> transactionLV;
     public Transaction e, i;
     public Button addIncomeBtn;
+    public Button CloseBtn;
+
 
     ArrayList<Transaction> E = new ArrayList<>();
     private ObservableList<Transaction> t = FXCollections.observableArrayList(E);
@@ -58,4 +61,8 @@ public class mainController {
     }
 
 
+    public void CloseBtnClicked(ActionEvent actionEvent) {
+        ((Stage) CloseBtn.getScene().getWindow()).close();
+
+    }
 }

@@ -24,6 +24,7 @@ public class transactionController {
     public Button cancelTransactionBtn;
     public ComboBox<Type> TypeCB;
     public Button cancelIncomeBtn;
+    public Button confirmIncome;
 
     private ObservableList<Category> incomeList = FXCollections.observableArrayList();
     private ObservableList<Type> select = FXCollections.observableArrayList();
@@ -67,7 +68,7 @@ public class transactionController {
                 alert.setHeaderText("Are you sure about this payment?");
                 Optional<ButtonType> result = alert.showAndWait();
                 if (result.get()== ButtonType.OK) {
-                    Window newWindow = confirmTransaction.getScene().getWindow();
+                    Window newWindow = confirmIncome.getScene().getWindow();
                     FXMLLoader loader = new FXMLLoader();
                     loader.setLocation(getClass().getResource("../FXML/activity_main.fxml"));
                     Parent root = loader.load();
@@ -89,7 +90,7 @@ public class transactionController {
         Optional<ButtonType> result = alert.showAndWait();
 
         if(result.get() == ButtonType.OK) {
-            Window newWindow = cancelTransactionBtn.getScene().getWindow();
+            Window newWindow = cancelIncomeBtn.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("../FXML/activity_main.fxml"));
             Parent root = loader.load();

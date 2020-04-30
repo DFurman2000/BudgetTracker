@@ -85,10 +85,18 @@
             <BorderPane.margin>
                <Insets bottom="25.0" top="10.0" />
             </BorderPane.margin>
-            <Button fx:id="addIncomeBtn" mnemonicParsing="false" onAction="#addIncomeBtnClicked" prefHeight="25.0" prefWidth="209.0" style="-fx-background-color: #FFFFFF;" text="Add Income/Expenses">
+            <Button fx:id="addIncomeBtn" mnemonicParsing="false" onAction="#addIncomeBtnClicked" prefHeight="25.0" prefWidth="190.0" style="-fx-background-color: #FFFFFF;" text="Add Income/Expenses">
                <HBox.margin>
                   <Insets right="25.0" />
                </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="CloseBtn" mnemonicParsing="false" onAction="#CloseBtnClicked" prefHeight="25.0" prefWidth="190.0" style="-fx-background-color: #FFFFFF;" text="Close ">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
             </Button>
          </HBox>
       </bottom>
