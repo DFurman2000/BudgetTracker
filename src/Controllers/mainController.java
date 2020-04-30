@@ -10,11 +10,12 @@ import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.stage.Window;
 
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class mainController {
-    public Button addIncomeBtn, addExpenseBtn;
+    public Button addTransactionBtn;
     public Label incomeLbl, expenseLbl, balanceLbl;
     public Label lblExpensesTotal;
     public Label lblIncomeTotal;
@@ -23,50 +24,34 @@ public class mainController {
 
     ArrayList<Transaction> E = new ArrayList<>();
     private ObservableList<Transaction> t = FXCollections.observableArrayList(E);
-
+    private DecimalFormat df = new DecimalFormat("0.00");
 
     public void initialize() {
         transactionLV.setItems(t);
 
     }
 
-    public void addIncomeBtnClicked() {
+    public void addTransactionBtnClicked() {
         try {
-            Window mainWindow = addIncomeBtn.getScene().getWindow();
+            Window mainWindow = addTransactionBtn.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("../FXML/activity_income.fxml"));
+            loader.setLocation(getClass().getResource("../FXML/activity_transaction.fxml"));
             Parent root = loader.load();
-            incomeController income = loader.getController();
+            transactionController transaction = loader.getController();
             mainWindow.getScene().setRoot(root);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
 
-    public void addExpenseBtnClicked() {
-        try {
-            Window newWindow = addExpenseBtn.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("../FXML/activity_expense.fxml"));
-            Parent root = loader.load();
-            expenseController expense = loader.getController();
 
-            newWindow.getScene().setRoot(root);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-    }
-//
-//    public void passExpense(double amount, LocalDate localDate, Category category, String note) {
-//        Transaction transaction = new Transaction(Type.Expense, localDate, category, amount, note);
-//        t.addAll(transaction);
-//    }
-
-    public void passIncome(Type type, double amount, LocalDate localDate, Category category, String note) {
+    public void passTransaction(Type type, double amount, LocalDate localDate, Category category, String note) {
         Transaction transaction = new Transaction(type, localDate, category, amount, note);
         t.addAll(transaction);
-        lblIncomeTotal.setText(String.valueOf(amount));
-        lblExpensesTotal.setText(String.valueOf(amount));
+        if (type == Type.Expense) {
+            lblExpensesTotal.setText(String.valueOf(df.format(amount)));
+        } else {
+            lblIncomeTotal.setText(String.valueOf(df.format(amount)));
+        }
     }
-
 }

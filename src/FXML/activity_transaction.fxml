@@ -5,19 +5,19 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.incomeController">
+<AnchorPane xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.transactionController">
    <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <top>
          <HBox>
             <BorderPane.margin>
                <Insets />
             </BorderPane.margin>
-            <Button fx:id="cancelIncomeBtn" mnemonicParsing="false" onAction="#cancelIncomeClicked" text="Cancel">
+            <Button fx:id="cancelTransactionBtn" mnemonicParsing="false" onAction="#cancelTransactionClicked" text="Cancel">
                <HBox.margin>
                   <Insets left="10.0" top="10.0" />
                </HBox.margin>
             </Button>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Add Income" HBox.hgrow="ALWAYS">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Add Transaction" HBox.hgrow="ALWAYS">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
@@ -83,7 +83,7 @@
             <BorderPane.margin>
                <Insets bottom="25.0" />
             </BorderPane.margin>
-            <Button fx:id="confirmIncome" mnemonicParsing="false" onAction="#confirmIncomeClicked" text="Confirm" />
+            <Button fx:id="confirmTransaction" mnemonicParsing="false" onAction="#confirmTransactionClicked" text="Confirm" />
          </HBox>
       </bottom>
    </BorderPane>
