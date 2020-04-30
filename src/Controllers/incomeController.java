@@ -1,8 +1,10 @@
 package Controllers;
 
 import Objects.Category;
+import Objects.Type;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
@@ -21,18 +23,37 @@ public class incomeController {
     public DatePicker dateDP;
     public TextArea noteTA;
     public Button cancelIncomeBtn;
+    public ComboBox<Type> TypeCB;
 
     private ObservableList<Category> incomeList = FXCollections.observableArrayList();
+    private ObservableList<Type> select = FXCollections.observableArrayList();
+    private ObservableList<Category> expenseList = FXCollections.observableArrayList();
 
     public void initialize() {
-        incomeList.addAll(Category.Balance,Category.Salary,Category.Gifts_I,
-                Category.Interest,Category.Selling,Category.Misc_I);
+        select.addAll(Type.Income, Type.Expense);
+        TypeCB.setItems(select);
 
-        categoryCB.setItems(incomeList);
+
     }
 
+    public void AddSelectType(ActionEvent actionEvent) {
+        int SelectTypeSelectionNumber = TypeCB.getSelectionModel().getSelectedIndex();
+        if (SelectTypeSelectionNumber == 0){
+            incomeList.addAll(Category.Balance,Category.Salary,Category.Gifts_I,
+                    Category.Interest,Category.Selling,Category.Misc_I);
+            categoryCB.setItems(incomeList);
+
+        } else if (SelectTypeSelectionNumber == 1){
+            expenseList.addAll(Category.Entertainment,Category.Food_Drink,Category.Shopping,Category.Bills,Category.Health,
+                    Category.Transport,Category.Gifts_E,Category.Family,Category.Education,Category.Misc_E);
+            categoryCB.setItems(expenseList);
+
+        }
+
+    }
     public void confirmIncomeClicked() throws IOException {
         try {
+            Type type = TypeCB.getSelectionModel().getSelectedItem();
             double amount = Double.parseDouble(amountTF.getText());
             LocalDate localDate = dateDP.getValue();
             Category category = categoryCB.getSelectionModel().getSelectedItem();
@@ -51,10 +72,7 @@ public class incomeController {
                     loader.setLocation(getClass().getResource("../FXML/activity_main.fxml"));
                     Parent root = loader.load();
                     mainController main = loader.getController();
-                    Locale locale = new Locale("en", "GB");
-                    NumberFormat cf = NumberFormat.getCurrencyInstance(locale);
-                    main.lblIncomeTotal.setText(cf.format(amount));
-                    main.passIncome(amount, localDate, category, note);
+                    main.passIncome(type, amount, localDate, category, note);
                     newWindow.getScene().setRoot(root);
                 }
             }
@@ -78,4 +96,7 @@ public class incomeController {
             newWindow.getScene().setRoot(root);
         }
     }
+
+
 }
+

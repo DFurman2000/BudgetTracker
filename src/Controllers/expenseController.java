@@ -56,7 +56,7 @@ public class expenseController {
                     Locale locale = new Locale("en", "GB");
                     NumberFormat cf = NumberFormat.getCurrencyInstance(locale);
                     main.lblExpensesTotal.setText(cf.format(amount));
-                    main.passExpense(amount, localDate, category, note);
+//                    main.passExpense(amount, localDate, category, note);
 
                     newWindow.getScene().setRoot(root);
                 }

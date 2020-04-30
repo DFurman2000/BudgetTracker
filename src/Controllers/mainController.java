@@ -11,6 +11,7 @@ import javafx.scene.control.*;
 import javafx.stage.Window;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class mainController {
     public Button addIncomeBtn, addExpenseBtn;
@@ -19,10 +20,9 @@ public class mainController {
     public Label lblIncomeTotal;
     public ListView<Transaction> transactionLV;
     public Transaction e, i;
-    public ListView <Transaction> ExpenseLV;
 
-
-    private ObservableList<Transaction> t = FXCollections.observableArrayList();
+    ArrayList<Transaction> E = new ArrayList<>();
+    private ObservableList<Transaction> t = FXCollections.observableArrayList(E);
 
 
     public void initialize() {
@@ -56,15 +56,17 @@ public class mainController {
             System.out.println(e.getMessage());
         }
     }
+//
+//    public void passExpense(double amount, LocalDate localDate, Category category, String note) {
+//        Transaction transaction = new Transaction(Type.Expense, localDate, category, amount, note);
+//        t.addAll(transaction);
+//    }
 
-    public void passExpense(double amount, LocalDate localDate, Category category, String note) {
-        Transaction transaction = new Transaction(Type.Expense, localDate, category, amount, note);
+    public void passIncome(Type type, double amount, LocalDate localDate, Category category, String note) {
+        Transaction transaction = new Transaction(type, localDate, category, amount, note);
         t.addAll(transaction);
-    }
-
-    public void passIncome(double amount, LocalDate localDate, Category category, String note) {
-        Transaction transaction = new Transaction(Type.Income, localDate, category, amount, note);
-        t.addAll(transaction);
+        lblIncomeTotal.setText(String.valueOf(amount));
+        lblExpensesTotal.setText(String.valueOf(amount));
     }
 
 }

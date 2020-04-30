@@ -85,7 +85,7 @@
             <BorderPane.margin>
                <Insets bottom="25.0" top="10.0" />
             </BorderPane.margin>
-            <Button fx:id="addIncomeBtn" mnemonicParsing="false" onAction="#addIncomeBtnClicked" text="Add Income">
+            <Button fx:id="addIncomeBtn" mnemonicParsing="false" onAction="#addIncomeBtnClicked" text="Add Income/Expenses">
                <HBox.margin>
                   <Insets right="25.0" />
                </HBox.margin>
