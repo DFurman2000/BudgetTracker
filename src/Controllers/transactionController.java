@@ -7,27 +7,32 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 import javafx.stage.Window;
 import java.io.IOException;
 import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.time.LocalDate;
+import java.util.Locale;
 import java.util.Optional;
 
 public class transactionController {
 
     public TextField amountTF;
-    public ComboBox<Category> categoryCB;
-    public Button confirmTransaction;
-    public DatePicker dateDP;
     public TextArea noteTA;
-    public Button cancelTransactionBtn;
+    public DatePicker dateDP;
     public ComboBox<Type> TypeCB;
+    public ComboBox<Category> categoryCB;
+    public Button cancelIncomeBtn;
+    public Button confirmIncome;
 
     private ObservableList<Category> incomeList = FXCollections.observableArrayList();
     private ObservableList<Type> select = FXCollections.observableArrayList();
     private ObservableList<Category> expenseList = FXCollections.observableArrayList();
-    private DecimalFormat df = new DecimalFormat("0.00");
+
+
 
     public void initialize() {
         select.addAll(Type.Income, Type.Expense);
@@ -50,7 +55,7 @@ public class transactionController {
         }
 
     }
-    public void confirmTransactionClicked() throws IOException {
+    public void confirmIncomeClicked() throws IOException {
         try {
             Type type = TypeCB.getSelectionModel().getSelectedItem();
             double amount = Double.parseDouble(amountTF.getText());
@@ -66,7 +71,7 @@ public class transactionController {
                 alert.setHeaderText("Are you sure about this payment?");
                 Optional<ButtonType> result = alert.showAndWait();
                 if (result.get()== ButtonType.OK) {
-                    Window newWindow = confirmTransaction.getScene().getWindow();
+                    Window newWindow = confirmIncome.getScene().getWindow();
                     FXMLLoader loader = new FXMLLoader();
                     loader.setLocation(getClass().getResource("../FXML/activity_main.fxml"));
                     Parent root = loader.load();
@@ -81,21 +86,20 @@ public class transactionController {
         }
     }
 
-    public void cancelTransactionClicked() throws IOException {
+
+    public void cancelIncomeClicked() throws IOException {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Cancel Transaction");
         alert.setHeaderText("Are you sure about cancelling this transaction?");
         Optional<ButtonType> result = alert.showAndWait();
 
         if(result.get() == ButtonType.OK) {
-            Window newWindow = cancelTransactionBtn.getScene().getWindow();
+            Window newWindow = cancelIncomeBtn.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("../FXML/activity_main.fxml"));
             Parent root = loader.load();
             newWindow.getScene().setRoot(root);
         }
     }
-
-
 }
 

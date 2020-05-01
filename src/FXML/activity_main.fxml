@@ -6,13 +6,13 @@
 <?import javafx.scene.text.*?>
 
 <AnchorPane xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.mainController">
-   <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+   <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #778899;">
       <top>
-         <VBox alignment="CENTER" BorderPane.alignment="CENTER">
+         <VBox alignment="CENTER" style="-fx-background-color: #778899;" BorderPane.alignment="CENTER">
             <BorderPane.margin>
                <Insets bottom="10.0" />
             </BorderPane.margin>
-            <MenuBar>
+            <MenuBar style="-fx-background-color: #708090;">
                <Menu mnemonicParsing="false" text="File">
                   <MenuItem mnemonicParsing="false" text="Close" />
                </Menu>
@@ -57,7 +57,7 @@
                      <Font name="System Bold" size="14.0" />
                   </font>
                </Text>
-               <Label fx:id="lblIncomeTotal" prefHeight="32.0" />
+               <Label fx:id="lblIncomeTotal" prefHeight="32.0" prefWidth="89.0" />
                <HBox alignment="CENTER">
                   <HBox.margin>
                      <Insets left="25.0" />
@@ -76,25 +76,32 @@
                      <Font name="System Bold" size="14.0" />
                   </font>
                </Text>
-               <Label fx:id="lblExpensesTotal" layoutX="243.0" layoutY="10.0" prefHeight="32.0" />
+               <Label fx:id="lblExpensesTotal" layoutX="243.0" layoutY="10.0" prefHeight="32.0" prefWidth="89.0" />
             </HBox>
          </VBox>
       </top>
       <bottom>
-         <HBox alignment="CENTER" BorderPane.alignment="CENTER">
+         <HBox alignment="CENTER" prefHeight="41.0" prefWidth="598.0" style="-fx-background-color: #778899;" BorderPane.alignment="CENTER">
             <BorderPane.margin>
                <Insets bottom="25.0" top="10.0" />
             </BorderPane.margin>
-            <Button fx:id="addTransactionBtn" mnemonicParsing="false" onAction="#addTransactionBtnClicked" text="Add Income/Expenses">
+            <Button fx:id="addIncomeBtn" mnemonicParsing="false" onAction="#addIncomeBtnClicked" prefHeight="25.0" prefWidth="190.0" style="-fx-background-color: #FFFFFF;" text="Add Income/Expenses">
                <HBox.margin>
-                  <Insets right="50.0" />
+                  <Insets right="25.0" />
                </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
             </Button>
-            <Button fx:id="viewPaymentBtn" mnemonicParsing="false" onAction="#viewPayment" text="View Payment Details" />
+            <Button fx:id="CloseBtn" mnemonicParsing="false" onAction="#CloseBtnClicked" prefHeight="25.0" prefWidth="190.0" style="-fx-background-color: #FFFFFF;" text="Close ">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Button>
          </HBox>
       </bottom>
       <center>
-         <ListView fx:id="transactionLV" prefHeight="190.0" prefWidth="293.0" BorderPane.alignment="CENTER" />
+         <ListView fx:id="transactionLV" prefHeight="190.0" prefWidth="293.0" style="-fx-background-color: #708090;" BorderPane.alignment="CENTER" />
       </center>
    </BorderPane>
 </AnchorPane>
