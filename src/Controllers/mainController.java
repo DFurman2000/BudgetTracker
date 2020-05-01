@@ -21,8 +21,8 @@ public class mainController {
     public Label lblExpensesTotal;
     public Label lblIncomeTotal;
     public ListView<Transaction> transactionLV;
-    public Button addIncomeBtn;
-    public Button CloseBtn;
+    public Button addTransactionBtn, viewDetailsBtn;
+    public MenuItem closeBtn;
 
 
     ArrayList<Transaction> E = new ArrayList<>();
@@ -35,9 +35,9 @@ public class mainController {
         transactionLV.setItems(t);
     }
 
-    public void addIncomeBtnClicked(ActionEvent actionEvent) {
+    public void addTransactionBtnClicked(ActionEvent actionEvent) {
         try {
-            Window mainWindow = addIncomeBtn.getScene().getWindow();
+            Window mainWindow = addTransactionBtn.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("../FXML/activity_transaction.fxml"));
             Parent root = loader.load();
@@ -59,9 +59,23 @@ public class mainController {
         }
     }
 
+    public void viewDetails() {
+        try {
+            Transaction t = transactionLV.getSelectionModel().getSelectedItem();
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Payment Details");
+            alert.setHeaderText("Information about your Payment");
+            alert.setContentText("Type: " + t.getType() + "\n" + "Amount: £" + t.getAmount() + "\n" + "Date of Transaction: "
+                    + t.getDate() + "\n" + "Category: " + t.getCategory() + "\n" + "Note: " + t.getNote());
+            alert.showAndWait();
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Please select a payment", ButtonType.OK);
+            alert.showAndWait();
+        }
+    }
 
-    public void CloseBtnClicked(ActionEvent actionEvent) {
-        ((Stage) CloseBtn.getScene().getWindow()).close();
+    public void closeBtnClicked(ActionEvent actionEvent) {
+        ((Stage)viewDetailsBtn.getScene().getWindow()).close();
 
     }
 }

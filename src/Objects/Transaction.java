@@ -1,6 +1,7 @@
 package Objects;
 
 import java.io.Serializable;
+import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.util.Locale;
@@ -12,6 +13,7 @@ public class Transaction implements Serializable {
     private Category category;
     private Double amount;
     private String note;
+    private DecimalFormat df = new DecimalFormat("0.00");
 
     public Transaction(Type type, LocalDate date, Category category, Double amount, String note) {
         this.type = type;

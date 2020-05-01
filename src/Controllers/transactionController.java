@@ -25,8 +25,8 @@ public class transactionController {
     public DatePicker dateDP;
     public ComboBox<Type> TypeCB;
     public ComboBox<Category> categoryCB;
-    public Button cancelIncomeBtn;
-    public Button confirmIncome;
+    public Button cancelTransactionBtn;
+    public Button confirmTransaction;
 
     private ObservableList<Category> incomeList = FXCollections.observableArrayList();
     private ObservableList<Type> select = FXCollections.observableArrayList();
@@ -55,7 +55,7 @@ public class transactionController {
         }
 
     }
-    public void confirmIncomeClicked() throws IOException {
+    public void confirmTransactionClicked() throws IOException {
         try {
             Type type = TypeCB.getSelectionModel().getSelectedItem();
             double amount = Double.parseDouble(amountTF.getText());
@@ -71,7 +71,7 @@ public class transactionController {
                 alert.setHeaderText("Are you sure about this payment?");
                 Optional<ButtonType> result = alert.showAndWait();
                 if (result.get()== ButtonType.OK) {
-                    Window newWindow = confirmIncome.getScene().getWindow();
+                    Window newWindow = confirmTransaction.getScene().getWindow();
                     FXMLLoader loader = new FXMLLoader();
                     loader.setLocation(getClass().getResource("../FXML/activity_main.fxml"));
                     Parent root = loader.load();
@@ -87,14 +87,14 @@ public class transactionController {
     }
 
 
-    public void cancelIncomeClicked() throws IOException {
+    public void cancelTransactionClicked() throws IOException {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Cancel Transaction");
         alert.setHeaderText("Are you sure about cancelling this transaction?");
         Optional<ButtonType> result = alert.showAndWait();
 
         if(result.get() == ButtonType.OK) {
-            Window newWindow = cancelIncomeBtn.getScene().getWindow();
+            Window newWindow = cancelTransactionBtn.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("../FXML/activity_main.fxml"));
             Parent root = loader.load();
