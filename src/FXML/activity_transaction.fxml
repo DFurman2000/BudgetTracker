@@ -14,9 +14,9 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.transactionController">
-   <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #778899;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+   <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <top>
-         <HBox alignment="CENTER" style="-fx-background-color: #708090;" BorderPane.alignment="CENTER">
+         <HBox alignment="CENTER" BorderPane.alignment="CENTER">
             <BorderPane.margin>
                <Insets bottom="10.0" top="10.0" />
             </BorderPane.margin>
@@ -31,19 +31,19 @@
          </HBox>
       </top>
       <center>
-         <VBox alignment="CENTER" style="-fx-background-color: #778899;" BorderPane.alignment="CENTER">
+         <VBox alignment="CENTER" BorderPane.alignment="CENTER">
             <HBox alignment="CENTER" VBox.vgrow="ALWAYS">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Type" wrappingWidth="44.13674294948578" />
-                  <ComboBox fx:id="TypeCB" onAction="#AddSelectType" prefHeight="25.0" prefWidth="110.0" style="-fx-background-color: #FFFFFF;" />
+                  <ComboBox fx:id="TypeCB" onAction="#AddSelectType" prefHeight="25.0" prefWidth="110.0" />
                </children>
             </HBox>
-            <HBox alignment="CENTER" layoutX="10.0" layoutY="190.0" style="-fx-background-color: #778899;" VBox.vgrow="ALWAYS">
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="190.0" VBox.vgrow="ALWAYS">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date" />
-               <DatePicker fx:id="dateDP" promptText="Select a date here" style="-fx-background-color: #FFFFFF;" />
+               <DatePicker fx:id="dateDP" promptText="Select a date here" />
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="192.0" VBox.vgrow="ALWAYS">
                <VBox.margin>
@@ -54,7 +54,7 @@
                      <Insets right="5.0" />
                   </HBox.margin>
                </Text>
-               <TextField fx:id="amountTF" promptText="Enter the amount here" style="-fx-background-color: #FFFFFF;">
+               <TextField fx:id="amountTF" promptText="Enter the amount here">
                   <HBox.margin>
                      <Insets right="15.0" />
                   </HBox.margin>
@@ -69,7 +69,7 @@
                      <Insets right="5.0" />
                   </HBox.margin>
                </Text>
-               <ComboBox fx:id="categoryCB" style="-fx-background-color: #FFFFFF;" />
+               <ComboBox fx:id="categoryCB" />
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="204.0" VBox.vgrow="ALWAYS">
                <VBox.margin>
@@ -80,7 +80,7 @@
                      <Insets right="5.0" />
                   </HBox.margin>
                </Text>
-               <TextArea fx:id="noteTA" style="-fx-background-color: #FFFFFF;" wrapText="true" />
+               <TextArea fx:id="noteTA" wrapText="true" />
             </HBox>
             <BorderPane.margin>
                <Insets />
@@ -88,18 +88,18 @@
          </VBox>
       </center>
       <bottom>
-         <HBox alignment="CENTER" prefHeight="38.0" prefWidth="600.0" style="-fx-background-color: #778899;" BorderPane.alignment="CENTER">
+         <HBox alignment="CENTER" prefHeight="38.0" prefWidth="600.0" BorderPane.alignment="CENTER">
             <BorderPane.margin>
                <Insets bottom="25.0" top="10.0" />
             </BorderPane.margin>
-            <Button fx:id="confirmTransaction" mnemonicParsing="false" onAction="#confirmTransactionClicked" style="-fx-background-color: #FFFFFF;" text="Confirm">
+            <Button fx:id="confirmTransaction" mnemonicParsing="false" onAction="#confirmTransactionClicked" text="Confirm">
                <HBox.margin>
                   <Insets right="50.0" />
                </HBox.margin>
                <padding>
                   <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
                </padding></Button>
-            <Button fx:id="cancelTransactionBtn" mnemonicParsing="false" onAction="#cancelTransactionClicked" style="-fx-background-color: #FFFFFF;" text="Cancel">
+            <Button fx:id="cancelTransactionBtn" mnemonicParsing="false" onAction="#cancelTransactionClicked" text="Cancel">
                <HBox.margin>
                   <Insets left="50.0" />
                </HBox.margin>

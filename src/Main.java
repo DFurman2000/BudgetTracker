@@ -12,6 +12,8 @@ public class Main extends Application {
         Scene scene = new Scene(root, 600, 400);
         stage.setScene(scene);
         stage.show();
+
+        scene.getStylesheets().add("styleSheet.css");
     }
 
     public static void main(String[] args) {

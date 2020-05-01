@@ -1,1 +1,41 @@
-.root {}
+.root {
+    -fx-font-family: sans-serif;
+    -fx-background-color: #7c8c9c;
+    -fx-text-wrap: true;
+    -fx-text-fill: black;
+}
+
+.button {
+    -fx-background-color: white;
+    -fx-font-weight: bold;
+}
+
+.button:hover {
+   -fx-background-color: lightgrey;
+}
+
+.button:pressed {
+   -fx-background-color: darkgrey;
+}
+
+.list-view {
+    -fx-background-color: #8d9aa5;
+}
+
+.list-view .list-cell:even {
+    -fx-background-color: #a9b3bc;
+}
+
+.list-view .list-cell:odd {
+    -fx-background-color: #9ba6b0;
+}
+
+.list-view .list-cell:selected {
+    -fx-background-color: #7e8d9a;
+}
+
+.label {
+    -fx-font-weight: bold;
+    -fx-font-size: 14px
+    -fx-text-fill: black;
+}
