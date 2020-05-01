@@ -7,7 +7,9 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 import javafx.stage.Window;
 import java.io.IOException;
 import java.text.DecimalFormat;
@@ -30,8 +32,7 @@ public class transactionController {
     private ObservableList<Type> select = FXCollections.observableArrayList();
     private ObservableList<Category> expenseList = FXCollections.observableArrayList();
 
-    Locale locale = new Locale("en", "GB");
-    NumberFormat cf = NumberFormat.getCurrencyInstance(locale);
+
 
     public void initialize() {
         select.addAll(Type.Income, Type.Expense);
@@ -57,7 +58,7 @@ public class transactionController {
     public void confirmIncomeClicked() throws IOException {
         try {
             Type type = TypeCB.getSelectionModel().getSelectedItem();
-            double amount = Double.parseDouble(cf.format(amountTF.getText()));
+            double amount = Double.parseDouble(amountTF.getText());
             LocalDate localDate = dateDP.getValue();
             Category category = categoryCB.getSelectionModel().getSelectedItem();
             String note = noteTA.getText();
@@ -84,6 +85,7 @@ public class transactionController {
             error.showAndWait();
         }
     }
+
 
     public void cancelIncomeClicked() throws IOException {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);

@@ -1,10 +1,11 @@
 package Objects;
 
+import java.io.Serializable;
 import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.util.Locale;
 
-public class Transaction {
+public class Transaction implements Serializable {
 
     private Type type;
     private LocalDate date;
@@ -65,6 +66,6 @@ public class Transaction {
 
 
     public String toString() {
-        return "Type: " + type + ",    Date: " + date + ",    Amount: £" + cf.format(amount) + ",    Category: " + category;
+        return "Type: " + type + ",    Date: " + date + ",    Amount: "  + cf.format(amount) + ",    Category: " + category;
     }
 }

@@ -27,13 +27,12 @@ public class mainController {
 
     ArrayList<Transaction> E = new ArrayList<>();
     private ObservableList<Transaction> t = FXCollections.observableArrayList(E);
+
     Locale locale = new Locale("en", "GB");
     NumberFormat cf = NumberFormat.getCurrencyInstance(locale);
 
-
     public void initialize() {
         transactionLV.setItems(t);
-
     }
 
     public void addIncomeBtnClicked(ActionEvent actionEvent) {
